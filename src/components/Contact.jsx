@@ -43,7 +43,9 @@ function Contact() {
         SERVICE_ID,
         TEMPLATE_ID,
         templateParams,
-        PUBLIC_KEY
+        {
+          publicKey: PUBLIC_KEY,
+        }
       );
 
       console.log("EmailJS Success:", result);
@@ -61,6 +63,8 @@ function Contact() {
       }, 3500);
     } catch (error) {
       console.log("EmailJS Error:", error);
+      console.log("EmailJS Status:", error?.status);
+      console.log("EmailJS Text:", error?.text);
 
       setErrorText(error?.text || "Email could not be sent.");
       setStatus("error");
@@ -104,7 +108,7 @@ function Contact() {
               className="contact-item"
             >
               <span>GitHub</span>
-              <strong>github.com/armansrivastav334</strong>
+              <strong>github.com/armancodess</strong>
             </a>
 
             <a
