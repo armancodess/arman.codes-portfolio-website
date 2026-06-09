@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-const SERVICE_ID = "service_abc123";
-const TEMPLATE_ID = "template_xyz456";
-const PUBLIC_KEY = "abcdEfgh123456";
+const SERVICE_ID = "service_rl2rjup";
+const TEMPLATE_ID = "template_qvf14w8";
+const PUBLIC_KEY = "AUWon5kCghES6xL3i";
 
 function Contact() {
   const formRef = useRef(null);
