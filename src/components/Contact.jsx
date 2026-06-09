@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const SERVICE_ID = "service_rl2rjup";
@@ -6,8 +6,6 @@ const TEMPLATE_ID = "template_qvf14w8";
 const PUBLIC_KEY = "AUWon5kCghES6xL3i";
 
 function Contact() {
-  const formRef = useRef(null);
-
   const [formData, setFormData] = useState({
     user_name: "",
     user_email: "",
@@ -15,32 +13,40 @@ function Contact() {
   });
 
   const [status, setStatus] = useState("");
+  const [errorText, setErrorText] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setFormData((prevData) => {
-      return {
-        ...prevData,
-        [name]: value,
-      };
-    });
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     setStatus("loading");
+    setErrorText("");
+
+    const templateParams = {
+      user_name: formData.user_name.trim(),
+      user_email: formData.user_email.trim(),
+      message: formData.message.trim(),
+      to_email: "armansrivastav334@gmail.com",
+      subject: "New Portfolio Message",
+    };
 
     try {
-      await emailjs.sendForm(
+      const result = await emailjs.send(
         SERVICE_ID,
         TEMPLATE_ID,
-        formRef.current,
-        {
-          publicKey: PUBLIC_KEY,
-        }
+        templateParams,
+        PUBLIC_KEY
       );
+
+      console.log("EmailJS Success:", result);
 
       setStatus("success");
 
@@ -54,7 +60,9 @@ function Contact() {
         setStatus("");
       }, 3500);
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.log("EmailJS Error:", error);
+
+      setErrorText(error?.text || "Email could not be sent.");
       setStatus("error");
     }
   };
@@ -116,11 +124,7 @@ function Contact() {
           </div>
         </div>
 
-        <form
-          ref={formRef}
-          className="premium-contact-form"
-          onSubmit={handleSubmit}
-        >
+        <form className="premium-contact-form" onSubmit={handleSubmit}>
           <div className="form-heading">
             <h3>Send a Message</h3>
             <p>I will try to respond as soon as possible.</p>
@@ -169,14 +173,12 @@ function Contact() {
           </button>
 
           {status === "success" && (
-            <p className="form-status success">
-              Message sent successfully!
-            </p>
+            <p className="form-status success">Message sent successfully!</p>
           )}
 
           {status === "error" && (
             <p className="form-status error">
-              Message failed. Please try again or email me directly.
+              Message failed: {errorText}
             </p>
           )}
         </form>
