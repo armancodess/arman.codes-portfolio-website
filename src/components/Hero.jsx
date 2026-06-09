@@ -89,7 +89,7 @@ function Hero() {
         <div className="floating-tech-badge badge-react">React</div>
         <div className="floating-tech-badge badge-java">Java</div>
         <div className="floating-tech-badge badge-mern">MERN</div>
-
+        <div className="floating-tech-badge badge-mern">DSA</div>
         <div className="hero-photo-card premium-profile-card">
           <div className="profile-card-top-line"></div>
 
