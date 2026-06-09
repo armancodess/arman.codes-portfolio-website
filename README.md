@@ -1,16 +1,51 @@
-# React + Vite
+# armancodes Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern personal developer portfolio built with React, Vite, Three.js, and CSS.
 
-Currently, two official plugins are available:
+This portfolio was created to showcase my skills, projects, learning journey, and contact information in a clean and responsive way. It includes a premium dark/light theme, animated developer-style background, responsive layout, and interactive UI sections.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live Demo
 
-## React Compiler
+Coming soon...
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+* React
+* Vite
+* Three.js
+* JavaScript
+* CSS
+* GitHub
+* Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+* Modern responsive portfolio design
+* Dark mode and light mode toggle
+* Animated Three.js developer background
+* Premium hero section with profile card
+* About section
+* Skills section
+* Projects section
+* Contact section
+* Resume download button
+* Mobile-friendly layout
+
+## Sections
+
+* Home
+* About
+* Skills
+* Projects
+* Contact
+
+## Project Status
+
+This project is currently in progress. I am improving it step by step while learning frontend development, React, and modern UI design.
+
+## Author
+
+**Arman Srivastav**
+
+* GitHub: [armansrivastav334](https://github.com/armancodess)
+* Email: [armansrivastav334@gmail.com](mailto:armansrivastav334@gmail.com)
