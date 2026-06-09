@@ -30,7 +30,7 @@ function Footer() {
 
           <div>
             <a
-              href="https://github.com/armansrivastav334"
+              href="https://github.com/armancodess"
               target="_blank"
               rel="noreferrer"
             >
