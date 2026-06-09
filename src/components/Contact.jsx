@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+
+const SERVICE_ID = "service_abc123";
+const TEMPLATE_ID = "template_xyz456";
+const PUBLIC_KEY = "abcdEfgh123456";
 
 function Contact() {
+  const formRef = useRef(null);
+
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    user_name: "",
+    user_email: "",
     message: "",
   });
 
@@ -20,24 +27,36 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     setStatus("loading");
 
-    setTimeout(() => {
+    try {
+      await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        formRef.current,
+        {
+          publicKey: PUBLIC_KEY,
+        }
+      );
+
       setStatus("success");
 
       setFormData({
-        name: "",
-        email: "",
+        user_name: "",
+        user_email: "",
         message: "",
       });
 
       setTimeout(() => {
         setStatus("");
-      }, 3000);
-    }, 900);
+      }, 3500);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus("error");
+    }
   };
 
   return (
@@ -97,33 +116,37 @@ function Contact() {
           </div>
         </div>
 
-        <form className="premium-contact-form" onSubmit={handleSubmit}>
+        <form
+          ref={formRef}
+          className="premium-contact-form"
+          onSubmit={handleSubmit}
+        >
           <div className="form-heading">
             <h3>Send a Message</h3>
             <p>I will try to respond as soon as possible.</p>
           </div>
 
           <div className="input-group">
-            <label htmlFor="name">Your Name</label>
+            <label htmlFor="user_name">Your Name</label>
             <input
               type="text"
-              id="name"
-              name="name"
+              id="user_name"
+              name="user_name"
               placeholder="Enter your name"
-              value={formData.name}
+              value={formData.user_name}
               onChange={handleChange}
               required
             />
           </div>
 
           <div className="input-group">
-            <label htmlFor="email">Your Email</label>
+            <label htmlFor="user_email">Your Email</label>
             <input
               type="email"
-              id="email"
-              name="email"
+              id="user_email"
+              name="user_email"
               placeholder="Enter your email"
-              value={formData.email}
+              value={formData.user_email}
               onChange={handleChange}
               required
             />
@@ -147,7 +170,13 @@ function Contact() {
 
           {status === "success" && (
             <p className="form-status success">
-              Message submitted successfully!
+              Message sent successfully!
+            </p>
+          )}
+
+          {status === "error" && (
+            <p className="form-status error">
+              Message failed. Please try again or email me directly.
             </p>
           )}
         </form>
