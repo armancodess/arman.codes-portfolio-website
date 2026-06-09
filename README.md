@@ -47,5 +47,5 @@ This project is currently in progress. I am improving it step by step while lear
 
 **Arman Srivastav**
 
-* GitHub: [armansrivastav334](https://github.com/armancodess)
+* GitHub: [armancodes](https://github.com/armancodess)
 * Email: [armansrivastav334@gmail.com](mailto:armansrivastav334@gmail.com)
