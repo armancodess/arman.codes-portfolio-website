@@ -52,7 +52,7 @@ function Footer() {
 
       <div className="footer-bottom">
         <p>© {currentYear} arman.codes. All rights reserved.</p>
-        <p>Built by Armaan Srivastav</p>
+        <p>Built by Arman Srivastav</p>
       </div>
     </footer>
   );
