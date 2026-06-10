@@ -2,13 +2,13 @@ const projects = [
   {
     number: "01",
     title: "Developer Portfolio",
-    status: "In Progress",
-    statusClass: "status-in-progress",
+    status: "Live",
+    statusClass: "status-Live",
     description:
       "A modern personal portfolio website with a premium colorful UI, animated developer background, responsive layout, skills section, project showcase, and contact section.",
     tech: ["React", "Vite", "Three.js", "CSS"],
-    github: "#",
-    live: "#",
+    github: "https://github.com/armancodess/arman.codes-portfolio-website",
+    live: "https://armancodes-portfolio.vercel.app/",
   },
 ];
 
